@@ -1,3 +1,25 @@
+# Vanilla Story
+
+It is a collaborative e-commerce site created during the training at the Wild Code School.
+![VanillaStory](https://i.postimg.cc/Gh4Bfg8B/lelogo.png)
+
+The Uer can be :
+* Register
+* Login
+* Buy Vanilla
+
+The Admin Can Be
+* Create, Edit , Delete product
+* See their Command
+
+## Teck Stack
+
+* PHP 7
+* Boostrap 4.5
+* Twig
+* HTML / CSS
+* MySQL
+
 ## Steps
 
 1. Clone the repo from Github.
