@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="card m-auto">
+    <div class="card-body">
+        <h5 class="card-title">{{ url.number }}</h5>
+        <p class="card-text">Size : {{url.number}}</p>
+    </div>
+    <div class="card-footer text-center">
+        <a href="/url/show/{{ url.id }}" class="btn btn-sm btn-success my-2"><i class="fas fa-eye"></i></a>
+        <a href="/url/edit/{{ url.id }}" class="btn btn-sm btn-warning my-2"><i class="fas fa-edit"></i></a>
+        <a href="/url/delete/{{ url.id }}" class="btn btn-sm btn-danger my-2"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+
+{% endblock %}

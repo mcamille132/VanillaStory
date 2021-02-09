@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Order confirmed{% endblock %}
+{% block content %}
+<div class="twig-content">
+<div class="container mt-5">
+    <div class="jumbotron bg-dark text-white">
+        <h1 class="display-5 text-center">Your order is confirmed ! Thank you !</h1>
+        <div class="tenor-gif-embed" data-postid="5301633" data-share-method="host" data-width="100%" data-aspect-ratio="1.3253012048192772"><a href="https://tenor.com/view/great-success-yes-gif-5301633">Great Success Yes GIF</a> from <a href="https://tenor.com/search/greatsuccess-gifs">Greatsuccess GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <div class="text-center mt-5">
+            <a href="/" class="btn btn-outline-primary btn-sm">back to shop</a>
+        </div>
+        <hr class="my-4">
+        {% if session.transaction %}
+        <div class="text-center">
+            <a href="{{session.transaction}}" target="_blank" class="btn btn-primary my-5">Détails de votre transaction.</a>
+            
+        </div>
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock %}

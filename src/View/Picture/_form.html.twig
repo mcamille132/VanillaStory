@@ -1,0 +1,9 @@
+<form method="post">
+    {{dump(url)}}
+    <input type="hidden" value="{{ url.id }}" name="id">
+    <div class="form-group">
+        <label for="url">Size</label>
+        <input type="text" class="form-control" id="url" value="{{ url.url }}" name="url">
+    </div>
+    <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+</form>

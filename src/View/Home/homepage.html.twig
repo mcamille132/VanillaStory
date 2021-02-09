@@ -1,0 +1,104 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="homepageWrapper">
+        <h2 class="blog-title"><span class="text-warning">START</span> YOUR OWN <span class="text-warning">VANILLA
+                STORY</span></h2>
+    </div>
+    <div class="navbarTop navbar-light">
+        <form method="POST" class="mx-auto">
+            <div class="row">
+                <div class="col-8">
+                    <div class="form-group">
+                        <input class="search-bar-sm" type="text" id="search" name="search"
+                            placeholder="ex: Vanilla extract">
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group1">
+                        <button type="submit" class="btn"><i class="fas fa-search text-warning"></i></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="containerHomepage mt-4">
+        <img src="https://i.ibb.co/dPX1hdM/Capture-du-2020-11-25-09-29-50-3-1-1.png"
+            style="width: 140vh; border: 0.5px solid yellow;" alt="..." class="img-thumbnail">
+        <div class="centered">
+            <h2 class="animate__animated animate__bounceInRight mainImageh2" style="animation-delay: 1s">
+                <span class="text-warning"><strong>DISCOVER OUR PRODUCTS</strong></span></h2>
+        </div>
+        <div class="col text-center">
+            <p class="animate__animated animate__rotateIn mainImgParagraph" style="animation-delay: 2s"><a
+                    href="/home/index">Right here</a>
+            </p>
+        </div>
+    </div>
+    <section id="infos">
+        <div class="infosWrapper">
+            <ul>
+                <li id="cocktail">
+                    <h4 class="titleinfo">Cocktails</h4>
+                    <p class="infosparagraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </li>
+                <li id="gourmet">
+                    <h4 class="titleinfo">Gourmets</h4>
+                    <p class="infosparagraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </li>
+                <li id="desert">
+                    <h4 class="titleinfo">Deserts</h4>
+                    <p class="infosparagraph">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="aboutUs">
+        <div class="aboutUsWrapper ml-5">
+            <article id="aboutUsImg">
+                <div class="overlay">
+                    <h4 class="aboutUsInfo"><em>Who's Vanilla Story</em></h4>
+                    <p class="aboutUsParagraph"><small>Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry.</small></p>
+                    <div class="col text-center">
+                        <a href="#"><button type="button" class="btn btn-warning text-white">More
+                                info</button></a>
+                    </div>
+                </div>
+            </article>
+            <article id="originImg">
+                <div class="overlay">
+                    <h4 class="aboutUsInfo"><em>The origin of our product</em></h4>
+                    <p class="aboutUsParagraph"><small>Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry.</small></p>
+                    <div class="col text-center">
+                        <a href="#"><button type="button" class="btn btn-warning text-white">More
+                                info</button></a>
+                    </div>
+                </div>
+            </article>
+            <div class="clear"></div>
+        </div>
+    </section>
+    <div class="numbersInfo">
+        <ul>
+            <li class="customers">
+                <p class="numbersParagraph text-dark">+2 000</p>
+                <h4 class="titleNumbers text-dark">HAPPY CUSTOMERS</h4>
+            </li>
+            <li class="customers">
+                <p class="numbersParagraph text-dark">+450K</p>
+                <h4 class="titleNumbers text-dark">ORDERS</h4>
+            </li>
+            <li class="customers">
+                <p class="numbersParagraph text-dark">95</p>
+                <h4 class="titleNumbers text-dark">YEARS OF EXCELLENCE</h4>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+{% endblock %}

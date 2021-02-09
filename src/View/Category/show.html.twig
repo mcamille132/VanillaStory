@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+{{ dump(product) }}
+<div class="card m-auto">
+    <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">Quantity : {{product.quantity}}</p>
+        <p class="card-text"> Category : {{product.category_name}}</p>
+        <p class="card-text">Size : {{product.size_number}}</p>
+        <p class="card-text">Price : {{product.price}}</p>
+    </div>
+    <div class="card-footer text-center">
+        <a href="/product/show/{{ product.id }}" class="btn btn-sm btn-success my-2"><i class="fas fa-eye"></i></a>
+        <a href="/product/edit/{{ product.id }}" class="btn btn-sm btn-warning my-2"><i class="fas fa-edit"></i></a>
+        <a href="/product/delete/{{ product.id }}" class="btn btn-sm btn-danger my-2"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+
+{% endblock %}

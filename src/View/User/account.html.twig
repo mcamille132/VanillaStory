@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="card m-auto">
+    <div class="card-body">
+        <h5 class="card-title">Hello {{ user.firstname }}{{user.lastname}}! How lovely seeing you today !</h5>
+        <p class="card-text">Your data</p>
+        <p class="card-text">Adress : {{user.street}}</p>
+        <p class="card-text"> City : {{user.city}}</p>
+        <p class="card-text">email : {{user.email}}</p>
+    </div>
+    <div class="card-footer text-center">
+        <a href="/user/edit/" class="btn btn-sm btn-warning my-2"><i class="fas fa-edit"></i></a>
+    </div>
+</div>
+{% endblock %}

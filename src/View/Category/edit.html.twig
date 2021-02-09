@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Edit category #{{ category.id }}</h1>
+    {% include 'Category/_form.html.twig' %}
+    <div class="text-right">
+        <a href="/category/show/{{ category.id }}">Back</a>
+    </div>
+{% endblock %}

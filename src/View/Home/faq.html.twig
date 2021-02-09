@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+
+<div class="faq-content">
+
+    
+
+    <div class="faq-introduction">
+        <h1>Frequently Asked Questions</h1>
+        <p>Here you can find the right answer for all of your questions or queries, about our company, our assortment or our online shop.</p>
+        <p>Phone: +44 (0)30 2000 88 400</p>  
+        <p>To accelerate the process, we kindly ask you to send an electronic copy to admin@vanillastory.com or contact us through our <a href='homecontact'>contact form.</a></p>
+
+    </div>
+
+    <table class="table table-white">
+        <tr>
+            {% for faq in faqs %}
+            <th scope="col">{{ faq.question }}</th>
+        </tr>
+        <tr>
+            <td>{{ faq.answer }}</td>
+        </tr>
+            {% endfor %}
+    </table>    
+
+</div>
+{% endblock %}

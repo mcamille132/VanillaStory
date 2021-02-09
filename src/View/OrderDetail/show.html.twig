@@ -1,0 +1,53 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="container-fluid mt-5">
+    <img src="https://i.postimg.cc/W1f6Ly11/illuorder.jpg" class="img-fluid w-100" alt="">
+<div class="card-group" style="border: 0.5px solid yellow;">
+
+    
+    <div class="card container-fluid" style="border: 0.5px solid yellow;">
+        <div class="card-body" >
+            <h5 class="card-title">Command number : {{ orderDetail.id }}</h5>
+            <p class="card-text"><i class="fas fa-calendar-alt"></i> Order Date : {{orderDetail.order_created_at}}</p>
+            <p class="card-text"> <i class="fas fa-paperclip"></i> Product Name : {{ orderDetail.product_name }}</p>
+            <p class="card-text"> <i class="fas fa-list-ol"></i> Quantity of product : {{orderDetail.quantity}}</p>
+            <p class="card-text"> <i class="fas fa-receipt"></i> Total : {{orderDetail.total}} £</p>
+            <p class="card-text"> <i class="fas fa-bell"></i> Status of command : 
+                {% if (orderDetail.status == true) %} 
+                <div class="alert alert-success text-center" role="alert">
+                Order process
+                </div>
+                {% else %}
+                <div class="alert alert-danger text-center" role="alert">
+                Order to process
+                </div> 
+                {% endif %}
+            </p>
+        </div>
+    
+        <div class="card-footer text-center">
+            <a href="/orderDetail/edit/{{ orderDetail.id }}" class="btn btn-sm btn-warning my-2"><i class="fas fa-edit"></i></a>
+        </div>
+    </div>
+
+
+    <div class="card container-fluid" style="border: 0.5px solid yellow;">
+        <div class="card-body">
+            <h5 class="card-title">Detail for delivery</h5>
+            <p class="card-text">Firstname : {{ orderDetail.user_firstname }}</p>
+            <p class="card-text">Lastname : {{ orderDetail.user_lastname }}</p>
+            <p class="card-text">Address : {{ orderDetail.user_street }} {{ orderDetail.user_city }}</p>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-12"> <a href="#" class="btn btn-outline-dark btn-block">Print the order form</a></div>
+    <div class="w-100"></div>
+    <br>
+    <div class="col-12"><a href="/admin/index" class="btn btn-outline-dark btn-block">Back</a></div>
+</div>
+<br>
+</div>
+{% endblock %}

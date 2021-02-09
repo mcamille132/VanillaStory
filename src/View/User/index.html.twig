@@ -1,0 +1,41 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="container-fluid mt-5" >
+    <div class="jumbotron my-5 bg-light text-dark" >
+<h2 class="display-4 text-center"> Customers </h2>
+<div class="card-group container-fluid">
+<img src="https://i.postimg.cc/YqK1k8Dz/Sans-titre-2.jpg" class="img-fluid rounded mx-auto d-block">
+<img src="https://i.postimg.cc/HW7QfFzL/Sans-titre-1.jpg" class="img-fluid rounded mx-auto d-block">
+</div>
+<br>
+<div class="table-responsive" style="border: 0.5px solid yellow;">
+<table class="table table-hover">
+    <thead>
+        <tr >
+            <th scope="col" style="border: 0.5px solid yellow;">ID</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Lastname</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Firstname</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">City</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        {% for user in users %}
+        {% if user.firstname != "Admin firstname" %}
+        <tr>
+            <th scope="row" style="border: 0.5px solid yellow;">{{user.id}}</th>
+                    <td style="border: 0.5px solid yellow;">{{user.lastname}}</td>
+                    <td style="border: 0.5px solid yellow;">{{user.firstname}}</td>
+                    <td style="border: 0.5px solid yellow;">{{user.city}} </td>
+                    <td style="border: 0.5px solid yellow;">{{user.email}} </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+    </div>
+</div>
+{% endblock %}

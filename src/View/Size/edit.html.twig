@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Edit size #{{ size.id }}</h1>
+    {% include 'size/_form.html.twig' %}
+    <div class="text-right">
+        <a href="/size/show/{{ size.id }}">Back</a>
+    </div>
+{% endblock %}

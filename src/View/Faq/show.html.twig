@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="card m-auto">
+    <div class="card-body">
+        <h5 class="card-title">{{ faq.question }}</h5>
+        <p class="card-text">{{faq.answer}}</p>
+    </div>
+    <div class="card-footer text-center">
+        <a href="/faq/show/{{ faq.id }}" class="btn btn-sm btn-success my-2"><i class="fas fa-eye"></i></a>
+        <a href="/faq/edit/{{ faq.id }}" class="btn btn-sm btn-warning my-2"><i class="fas fa-edit"></i></a>
+        <a href="/faq/delete/{{ faq.id }}" class="btn btn-sm btn-danger my-2"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+
+{% endblock %}

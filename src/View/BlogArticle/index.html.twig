@@ -1,0 +1,50 @@
+{% extends 'layout_blog.html.twig' %}
+{% block title %}{% endblock %}
+{% block content %}
+<div class="blogwrapper">
+    <div class="shareStory">
+        <h2 CLASS="blog-title">Sharing our Vanilla Story</h2>
+    </div>
+    <div class="container-fluid header-category-bg">
+        <img class= "imgbanner" src="https://i.ibb.co/JxGTrHV/null.jpg" class="rounded float-left" alt="cake preparation">
+        <img class= "imgbanner" src="https://i.ibb.co/JFDsWjq/null.jpg" class="rounded float-right" alt="vanilla meringue">
+        <img class= "imgbanner" src="https://i.ibb.co/wQPMN2s/null.jpg" alt="vanilla ice sugar">
+    </div>
+    <div class="row blog">
+        {% for blogArticle in blogArticles %}
+        <div class="left-colum">
+            <div class="card blogcard">
+                <h2 class="title-article">{{blogArticle.title}}</h2>
+                <img src="{{blogArticle.blogImages[0].link}}" alt="">
+                <p class="blog-paragraph">{{blogArticle.content}}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row underblog">
+            <div class="leftcolumn">
+              <div class="card cardimg1 cardImgMediaQuery">
+                <h2>The tasty vanilla crème brûlée</h2>
+                <div class="img1" style="height:200px;"><img src="https://i.ibb.co/1ZbQdB2/FONDPIXEL-6-1080x580.jpg" alt=""></div>
+                <p class="imgtext">Five simple ingredients – cream, vanilla, salt, eggs and sugar – make for an exquisitely rich and elegant dessert.</p>
+              </div>
+              <div class="card cardimg1 cardImgMediaQuery2">
+                <h2>Who want a vanilla break?</h2>
+                <div class="img2" style="height:200px;"><img src="https://i.ibb.co/tLqr2f5/Capture-du-2020-11-08-23-35-54.png" alt=""></div>
+                <p class="imgtext textSuite">Fluffier, more tender and less greasy than the typical vanilla cakes</p>
+              </div>
+            </div>
+            <div class="rightcolumn">
+              <div class="card cardimg2 cardImgMediaQuery3">
+                <h2>The home made vanilla bread</h2>
+                <div class="img3" style="height:100px;"><img src="https://i.ibb.co/CPrx0TX/garlic-braided-loaf-9.jpg" alt=""></div>
+                <p class="img3text">Who wants some bread that taste like a lovely vanilla cake?</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer">
+            <h2></h2>
+          </div>
+    </div>
+</div>
+</div>
+{% endblock %}

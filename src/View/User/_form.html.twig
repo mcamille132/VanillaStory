@@ -1,0 +1,87 @@
+{% block title %}{% endblock %}
+{% block content %}
+		{% if error is not null %}
+		<div class="alert alert-danger" role="alert">
+			{{error}}
+		</div>
+		{% endif %}
+		<form class="" method="POST" action="edit">
+			<input type="hidden" value="{{ user.id }}" name="id">
+			
+			<div class="input-group">
+				<div class="input-group-prepend">
+				  <span class="input-group-text" id="firstname"><i class="fa fa-address-book" aria-hidden="true"></i></span>
+				</div>
+				<input class="form-control" id="firstname" name="firstname" aria-describedby="inputGroupPrepend2" value="{{ user.firstname }}">
+			</div>
+			<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+				  <span class="input-group-text h-5" id="lastname"><i class="fa fa-address-card" aria-hidden="true"></i></span>
+				</div>
+				<input class="form-control" id="lastname" name="lastname" aria-describedby="inputGroupPrepend2" value="{{ user.lastname }}">
+			</div>
+			<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+				  <span class="input-group-text" id="mail"><i class="fa fa-envelope-open" aria-hidden="true"></i></span>
+				</div>
+				<input class="form-control" id="email" name="email" aria-describedby="inputGroupPrepend2" value="{{ user.email }}">
+			</div>
+			<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+				  <span class="input-group-text" id="street"><i class="fa fa-home" aria-hidden="true"></i></span>
+				</div>
+				<input class="form-control" id="street" name="street" aria-describedby="inputGroupPrepend2" value="{{ user.street }}">
+			</div>
+			<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+				  <span class="input-group-text" id="city"><i class="fa fa-building" aria-hidden="true"></i></span>
+				</div>
+				<input class="form-control" id="city" name="city" aria-describedby="inputGroupPrepend2" value="{{ user.city }}">
+			</div>
+			<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+				  <span class="input-group-text" id="pwd"><i class="fa fa-key" aria-hidden="true"></i></span>
+				</div>
+				<input type="password" class="form-control" id="pwd" name="pwd" aria-describedby="inputGroupPrepend2" value="">
+			</div>
+			<br>
+			<div class="input-group">
+				<div class="input-group-prepend">
+				  <span class="input-group-text" id="pwd"><i class="fa fa-key" aria-hidden="true"></i></span>
+				</div>
+				<input type="password" class="form-control" id="pwd2" name="pwd2" aria-describedby="inputGroupPrepend2" value="">
+			</div>
+			<br>
+			<button type="submit" class="btn btn-primary">Save </button>
+		  </form>
+		{# <form method="POST" class='customer-form' >
+			<input type="hidden" value="{{ user.id }}" name="id">
+				<label for="firstname">Firstname</label>
+				<input type="text" id="firstname" name="firstname" value="{{ user.firstname }}">
+				<label for="lastname">Lastname</label>
+				<input type="text" id="lastname" name="lastname" value="{{ user.lastname }}">
+				<label for="street">Address</label>
+				<input type="text" id="street" name="street" value="{{ user.street }}">
+				<label for="city">City</label>
+				<input type="text" id="city" name="city" value="{{ user.city }}" >
+				<label for="email">Email</label>
+				<br>
+				<input type="email" id="email" name="email" value="{{ user.email }}" size="40">
+				<br>
+				<label for="pwd">Password</label>
+				<br>
+				<input type="password" id="pwd" name="pwd" value="" size="40">
+				<br>
+				<label for="pwd2">Check Password</label>
+				<br>
+				<input type="password" id="pwd2" name="pwd2" value="" size="40">
+				<br>
+				<br>
+				<button type="submit" class="btn btn-primary">Changer </button>
+		</form> #}
+{% endblock %}

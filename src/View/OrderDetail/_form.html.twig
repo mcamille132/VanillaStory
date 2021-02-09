@@ -1,0 +1,29 @@
+{% block content %}
+    <div class="container-fluid">
+        <img src="https://i.postimg.cc/W1f6Ly11/illuorder.jpg" class="img-fluid w-100" alt="">
+        <form method="POST">
+        <input type="hidden" value="{{ orderDetail.id }}" name="id">
+        <h5 class="card-title text-center">Command number : {{ orderDetail.id }}</h5>
+            <div class="card" style="border: 0.5px solid yellow;">
+                <div class="card-body text-center">
+                    <p class="card-text"><i class="fas fa-calendar-alt"></i> Order Date : {{orderDetail.order_created_at}}</p>
+                    <p class="card-text"> <i class="fas fa-paperclip"></i> Product Name : {{ orderDetail.product_name }}</p>
+                    <p class="card-text"> <i class="fas fa-list-ol"></i> Quantity of product : {{orderDetail.quantity}}</p>
+                    <p class="card-text"> <i class="fas fa-receipt"></i> Total : {{orderDetail.total}} £</p>
+                    <div class="custom-control custom-switch">
+                        <input class="custom-control-input" type="checkbox" id="status" value="true" name="status" {{orderDetail.status ? 'checked' : ''}}>
+                        <label class="custom-control-label" for="status"> Check if the order has been processed </label>
+                    </div> 
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12"> <button type="submit" value="Submit" class="btn btn-primary btn-block">Submit</button> </div>
+        </form>
+                <div class="w-100"></div>
+                <br>
+                <div class="col-12"><a href="/orderDetail/show/{{ orderDetail.id }}" class="btn btn-outline-dark btn-block">Back</a></div>
+            </div>
+                <br>
+</div>
+{% endblock %}

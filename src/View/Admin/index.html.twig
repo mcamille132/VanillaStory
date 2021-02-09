@@ -1,0 +1,76 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Admin Index
+{% endblock %}{% block content %}
+
+<div class="container-fluid">
+    <div class="jumbotron my-5 bg-light text-dark">
+        <h2 class="display-4 text-center">Orders </h2>
+        <img src="https://i.postimg.cc/G2scB6F2/illusshoo.jpg" class="img-fluid rounded mx-auto d-block">
+        <br>
+        <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" style="border: 0.5px solid yellow;">ID</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Lastname</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Firstname</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Total</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Date</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">View</th>               
+
+            </thead>
+            <tbody>
+                {% for order in orders %}
+               
+                <tr>
+                    <th scope="row" style="border: 0.5px solid yellow;">{{order.id}}</th>
+                    <td style="border: 0.5px solid yellow;">{{order.user_lastname}}</td>
+                    <td style="border: 0.5px solid yellow;">{{order.user_firstname}}</td>
+                    <td style="border: 0.5px solid yellow;">{{order.total}} £</td>
+                    <td style="border: 0.5px solid yellow;">{{order.created_at|date('d-m-Y')}}</td>
+                    <td style="border: 0.5px solid yellow;">
+                        <a href="/orderDetail/show/{{ order.id }}" class="btn btn-sm btn-success my-2"><i class="fas fa-eye"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+              
+            </tbody>
+        </table>
+    </div>
+    </div>
+    <div class="jumbotron my-5 bg-light text-dark">
+        <h2 class="display-4 text-center">Articles </h2>
+        <img src="https://i.postimg.cc/KYGQQgJS/illuvanilla.jpg" class="img-fluid rounded mx-auto d-block">
+        <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col" style="border: 0.5px solid yellow;">ID</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Name</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Quantity</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Price</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <th scope="row" style="border: 0.5px solid yellow;">{{product.id}}</th>
+                    <td style="border: 0.5px solid yellow;">{{product.name}}</td>
+                    <td style="border: 0.5px solid yellow;">{{product.quantity}}</td>
+                    <td style="border: 0.5px solid yellow;">{{product.price}}</td>
+                    <td style="border: 0.5px solid yellow;">
+
+                        <a href="/product/show/{{ product.id }}" class="btn btn-sm btn-success my-2"><i
+                                class="fas fa-eye"></i></a>
+                        <a href="/product/edit/{{ product.id }}" class="btn btn-sm btn-warning my-2"><i
+                                class="fas fa-edit"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

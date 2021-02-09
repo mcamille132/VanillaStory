@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="container-fluid mt-5">
+    <div class="jumbotron my-5 bg-light text-dark">
+<h2 class="display-4 text-center"> Orders </h2>
+<img src="https://i.postimg.cc/G2scB6F2/illusshoo.jpg" class="img-fluid rounded mx-auto d-block">
+<br>
+<div class="table-reponsive">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col" style="border: 0.5px solid yellow;">ID</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Lastname</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Firstname</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Total</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">Date</th>
+                    <th scope="col" style="border: 0.5px solid yellow;">View</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <th scope="row" style="border: 0.5px solid yellow;">{{order.id}}</th>
+                    <td style="border: 0.5px solid yellow;">{{order.user_lastname}}</td>
+                    <td style="border: 0.5px solid yellow;">{{order.user_firstname}}</td>
+                    <td style="border: 0.5px solid yellow;">{{order.total}} £</td>
+                    <td style="border: 0.5px solid yellow;">{{order.created_at|date('d-m-Y')}}</td>
+                    <td style="border: 0.5px solid yellow;">
+                    <a href="/orderDetail/show/{{ order.id }}" class="btn btn-sm btn-success my-2"><i class="fas fa-eye"></i></a>
+                    </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+    </div>
+</div>
+{% endblock %}

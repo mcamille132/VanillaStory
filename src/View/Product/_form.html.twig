@@ -1,0 +1,92 @@
+{% block content %}
+    <div class="container-fluid mt-5">
+        <div class="card mb-4" style="border: 0.5px solid yellow;">
+            <div class="row no-gutters">
+                {% if product.id is defined %}
+                <div class="col-md-4 mt-5 container-fluid">
+                    <img src="{{product.pictures[0].url}}" class="card-img img-fluid">
+                </div>
+                {% else %}
+                <div class="col-md-4 mt-5 container-fluid">
+                    <img src="https://i.postimg.cc/7ZN3vyk7/eidt1.jpg" class="card-img img-fluid">
+                </div>
+                {% endif %}
+                <div class="col-md-8">
+                    <div class="card-body">
+        <form method="post">
+        <input type="hidden" value="{{ product.id }}" name="id">
+        <h5 class="card-title text-center">{{ product.name }}</h5>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" value="{{ product.name }}" name="name">
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="text" class="form-control" id="quantity" value="{{ product.quantity }}" name="quantity">
+            </div>
+            <div class="form-group">
+                <label for="sizes">Select size</label>
+                <select class="form-control" id="size_id" name="size_id">
+                    <option value={{product.size_id}}>{{product.size_number}}</option>
+                    {% for size in sizes %}
+                    {% if size.id != product.size_id %}
+                    <option value={{size.id}}>{{size.number}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" class="form-control" id="price" value="{{ product.price }}" name="price">
+            </div>
+            <div class="form-group">
+                <label for="categories">Select category</label>
+                <select class="form-control" id="category_id" name="category_id">
+                    <option value={{product.category_id}}>{{product.category_name}}</option>
+                    {% for category in categories %}
+                    {% if category.id != product.category_id %}
+                    <option value={{category.id}}>{{category.name}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="content">Description</label>
+                <textarea type="text" class="form-control" id="content" value="{{ product.content }}" name="content" rows="5" cols="33"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="picture">Picture</label>
+                <input type="text" class="form-control" id="picture" value="{{product.pictures[0].url}}" name="picture">
+            </div>
+            <div class="custom-control custom-switch">
+                <input class="custom-control-input" type="checkbox" id="activated" value="true" name="activated" {{product.activated ? 'checked' : ''}}>
+                <label class="custom-control-label" for="activated">Is activated</label>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-12"> <button type="submit" value="Submit" class="btn btn-primary btn-block">Submit</button> </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+                <div class="w-100"></div>
+                <br>
+                {% if product.id is defined %}
+                <div class="col-12"><a href="/product/show/{{ product.id }}" class="btn btn-outline-dark btn-block mb-5">Back</a></div>
+                {% endif %}
+            </div>
+            <br>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+

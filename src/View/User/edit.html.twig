@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+<div class="user-container-form">
+  <div class="user-form">
+    <h2 class="card-title">Hello</h2>
+    <h2>{{ user.firstname }} {{user.lastname}}</h2>
+    <p>Feel free to update your data if necessary</p>
+    {% include 'User/_form.html.twig' %}
+  </div>
+  <div class="user-img">
+    <img class="image-user" src="https://zupimages.net/up/20/48/3qrh.jpg" height="600" width="450">
+  </div>
+</div>
+{% endblock %}

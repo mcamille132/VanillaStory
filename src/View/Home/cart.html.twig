@@ -1,0 +1,127 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+<div class="twig-content">
+<div class="container mt-5">
+    {% if session.cart %}
+    <form method="POST">
+        <div class="text-right">
+            <button type="submit" class="btn btn-warning" name="update_cart">Update Cart</button>
+        </div>
+     
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in cartInfos %}
+            <tr>
+                <td>#</td>
+                <input type="text" class="d-none" name="id[]" value="{{product.id}}">
+                <td>{{product.name}}</td>
+                <td>
+                    <select name="quantity[]" id="quantity">
+                        <option value="{{product.quantity}}">{{product.quantity}}</option>
+                        {% for i in 1..10 %}
+                        {% if i != product.quantity %}
+                        <option value="{{i}}">{{i}}</option>
+                        {% endif %}
+                        {% endfor %}
+                    </select>
+                </td>
+                <td>{{product.price}} £</td>
+                <td>{{product.price * product.quantity }} £</td>
+                <td>
+                    <a href="/home/cart/{{product.id}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    </form>
+    <h1 class="display-4 mb-5">Total cart : {{total}} £</h1>
+    <div class="jumbotron my-5">
+        <h2 class="display-4">Paiement :</h2>
+        {% if errorForm is not null %}
+        <div class="alert alert-danger" role="alert">
+            {{ errorForm }}
+        </div>
+        {% endif %}
+        <div class="alert alert-danger d-none" role="alert" id="card-errors"></div>
+        <hr class="my-4">
+        <form method="POST">
+            <input type="text" class="d-none" name="payment">
+            <div class="form-group">
+                <label for="firstname">Firstname *</label>
+                <input type="text" class="form-control" name="firstname" id="firstname">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Lastname *</label>
+                <input type="text" class="form-control" name="lastname" id="lastname">
+            </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" class="form-control" name="email" id="email">
+            </div>
+            <div class="form-group">
+                <label for="address">Adresse *</label>
+                <input type="text" class="form-control" name="address" id="address">
+            </div>
+            <!-- STRIPE -->
+            <input type='text' id="token" name='stripeToken' style="display: none" value="">
+            <div id="card" class="my-5"></div>
+            <!-- END STRIPE -->
+            <div class="small">* Required field</div>
+            <div class="text-center my-4">
+                <button type="submit" class="btn btn-primary disabled" id="submit">Validate my cart</button>
+            </div>
+        </form>
+    </div>
+    {% else %}
+    <div class="jumbotron">
+        <h1 class="display-4">Your cart is empty </h1>
+    </div>
+    {% endif %}
+</div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    var stripe = Stripe('pk_test_51HobmoEdVOkL7hnSeDnyzju8mXSwCd069gH22YH1nUPHUtOGeDUTBz3HGKWviDo37CuHNYsvUUDtqHf12jaUKoZp00iu3mqKzQ');
+    let form = document.getElementById('card');
+    let displayError = document.getElementById('card-errors')
+    let inputToken = document.getElementById('token')
+    let submitButton = document.getElementById('submit')
+    var elements = stripe.elements();
+    var cardElement = elements.create('card');
+    cardElement.mount(form);
+    cardElement.on('change', (event) => {
+        if (event.complete) {
+            stripe.createToken(cardElement).then(result => {
+                if (result.token) {
+                    inputToken.value = result.token.id;
+                    submitButton.classList.remove('disabled');
+                    displayError.classList.add('d-none');
+                } else if (result.error) {
+                    alert(result.error)
+                }
+            })
+        } else if (event.error) {
+            displayError.classList.remove('d-none');
+            displayError.textContent = event.error.message;
+        }
+    });
+</script>
+{% endblock %}

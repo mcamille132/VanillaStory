@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="card m-auto">
+    <div class="card-body">
+        <h5 class="card-title">{{ order.name }}</h5>
+        <p class="card-text">Quantity : {{order.quantity}}</p>
+        <p class="card-text"> Category : {{order.category_name}}</p>
+        <p class="card-text">Size : {{order.size_number}}</p>
+        <p class="card-text">Price : {{order.price}}</p>
+    </div>
+    <div class="card-footer text-center">
+        <a href="/order/show/{{ order.id }}" class="btn btn-sm btn-success my-2"><i class="fas fa-eye"></i></a>
+        <a href="/order/delete/{{ order.id }}" class="btn btn-sm btn-danger my-2"><i class="fas fa-trash"></i></a>
+    </div>
+</div>
+
+{% endblock %}

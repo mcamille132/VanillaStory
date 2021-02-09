@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<h2 class="display-4">Products :</h2>
+<div class="text-right my-3">
+    <a href="/size/add" class="btn btn-sm btn-primary">New <i class="fas fa-plus-circle"></i></a>
+</div>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Size</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for size in sizes %}
+        <tr>
+            <td>{{ size.id }}</td>
+            <td>{{ size.number }}</td>
+                <a href="/size/show/{{ size.id }}" class="btn btn-sm btn-success my-2"><i
+                        class="fas fa-eye"></i></a>
+                <a href="/size/edit/{{ size.id }}" class="btn btn-sm btn-warning my-2"><i
+                        class="fas fa-edit"></i></a>
+                <a href="/size/delete/{{ size.id }}" class="btn btn-sm btn-danger my-2"><i
+                        class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
