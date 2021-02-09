@@ -3,12 +3,12 @@
 It is a collaborative e-commerce site created during the training at the Wild Code School.
 ![VanillaStory](https://i.postimg.cc/Gh4Bfg8B/lelogo.png)
 
-The Uer can be :
+The User can be :
 * Register
 * Login
 * Buy Vanilla
 
-The Admin Can Be
+The Admin Can Be :
 * Create, Edit , Delete product
 * See their Command
 
@@ -52,5 +52,3 @@ If you develop on Windows, you should edit you git configuration to change your 
 * Item deletion [localhost:8000/item/index/delete/:id](localhost:8000/item/delete/2)
 
 ## How does URL routing work ?
-
-![Simple MVC.png](https://raw.githubusercontent.com/WildCodeSchool/simple-mvc/master/Simple%20-%20MVC.png)
